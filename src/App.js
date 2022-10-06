@@ -19,14 +19,16 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Header />
+      
       <Router>
+      <Header />
         <Routes>
-          <Route path="/" element={<AboutUs />} />
-          <Route path="JoinNow" element={<JoinNow />} />
-          <Route path="GamesList" element={<GamesList />} />
+            <Route path="/" element={<AboutUs />} />
+            <Route path="JoinNow" element={<JoinNow />} />
+            <Route path="GamesList" element={<GamesList />} />
         </Routes>
       </Router>
+        
     </ThemeProvider>
   );
 }

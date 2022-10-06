@@ -137,17 +137,27 @@ const Header = () => {
             Richard Deng Industries
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {/* Map 1 */}
             {pages.map((page) => (
               <Tooltip title={page}>
-                <Router>
+                {/* Not needed. You have a router outside in the app.js,
+                redeclaring this causes your to route only in this component
+                the parent in app.js where you have the routes defined */}
+                {/* <Router> */}
                   <Button
                     key={page}
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
+                    {/* Map 2 */}
                     {links}
+                    {/* You're mapping inside of a map which is causing the behavior 
+                    you've been seeing. Either map and display bunch of buttons with 1 link
+                    or you can do 1 button with mulitple links (doesn't make sense, but doable).
+                    You'll be able to fix this - just look at it a little longer.
+                    */}
                   </Button>
-                </Router>
+                {/* </Router> */}
               </Tooltip>
             ))}
           </Box>
