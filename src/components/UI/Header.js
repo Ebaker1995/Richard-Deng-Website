@@ -36,17 +36,17 @@ const pages2 = [
   },
 ];
 
-// const links = pages2.map(({ name, path }) => (
-//   <Link key={name} to={path}>
-//     {name}
-//   </Link>
-// ));
+const links = pages2.map(({ name, path }) => (
+  <Link key={name} to={path}>
+    {name}
+  </Link>
+));
 
-// const links2 = (
-//   <Link key={pages2.name} to={pages2.path}>
-//     {pages2.name}
-//   </Link>
-// );
+const links2 = (
+  <Link key={pages2.name} to={pages2.path}>
+    {pages2.name}
+  </Link>
+);
 
 // const keys = Object.keys(pages2);
 // keys.forEach((name, path) => {});
