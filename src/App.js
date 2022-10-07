@@ -31,6 +31,7 @@ function App() {
           <Route path="GamesList" element={<GamesList />} />
         </Routes>
       </Router>
+        
     </ThemeProvider>
   );
 }
