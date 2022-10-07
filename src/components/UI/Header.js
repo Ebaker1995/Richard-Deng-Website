@@ -18,38 +18,20 @@ import { Link } from "react-router-dom";
 
 import "./Header.css";
 
-const pages = ["About Us", "Join Now", "Games List"];
-const pageLink = ["/AboutUs", "/JoinNow", "/GamesList"];
-
-const pages2 = [
+const pages = [
   {
-    name: "AboutUs",
+    name: "About Us",
     path: "/AboutUs",
   },
   {
-    name: "JoinNow",
+    name: "Join Now",
     path: "/JoinNow",
   },
   {
-    name: "GamesList",
+    name: "Games List",
     path: "/GamesList",
   },
 ];
-
-const links = pages2.map(({ name, path }) => (
-  <Link key={name} to={path}>
-    {name}
-  </Link>
-));
-
-const links2 = (
-  <Link key={pages2.name} to={pages2.path}>
-    {pages2.name}
-  </Link>
-);
-
-// const keys = Object.keys(pages2);
-// keys.forEach((name, path) => {});
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -60,8 +42,6 @@ const Header = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    // console.log(links);
-    // console.log(links2);
   };
 
   return (
@@ -116,14 +96,14 @@ const Header = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pageLink.map((page) => (
+              {pages.map((page) => (
                 <MenuItem
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   component={Link}
-                  to={page}
+                  to={page.path}
                 >
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -149,27 +129,16 @@ const Header = () => {
             Richard Deng Industries
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pageLink.map((page) => (
-              <Tooltip title={page}>
+            {pages.map((page) => (
+              <Tooltip title={page.name}>
                 <Button
-                  key={page}
-                  // component={Link}
-                  // to={`${pages2.path}`}
-                  // to={{
-                  //   pathname: `${pages2.path}`,
-                  // }}
-                  // to={page}
-                  // to={{
-                  //   pathname: { page },
-                  // }}
-                  // to= `/ ${page}`
-                  // to={pages2.path}
+                  key={page.name}
                   component={Link}
-                  to={page}
+                  to={page.path}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               </Tooltip>
             ))}
