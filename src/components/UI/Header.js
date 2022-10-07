@@ -14,22 +14,17 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import React from "react";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Outlet,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 
 const pages = ["About Us", "Join Now", "Games List"];
+const pageLink = ["/AboutUs", "/JoinNow", "/GamesList"];
 
 const pages2 = [
   {
     name: "AboutUs",
-    path: "/",
+    path: "/AboutUs",
   },
   {
     name: "JoinNow",
@@ -41,11 +36,20 @@ const pages2 = [
   },
 ];
 
-const links = pages2.map(({ name, path }) => (
-  <Link key={name} to={path}>
-    {name}
-  </Link>
-));
+// const links = pages2.map(({ name, path }) => (
+//   <Link key={name} to={path}>
+//     {name}
+//   </Link>
+// ));
+
+// const links2 = (
+//   <Link key={pages2.name} to={pages2.path}>
+//     {pages2.name}
+//   </Link>
+// );
+
+// const keys = Object.keys(pages2);
+// keys.forEach((name, path) => {});
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -56,13 +60,14 @@ const Header = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    // console.log(links);
+    // console.log(links2);
   };
 
   return (
     <AppBar position="static">
       <Container maxWidth="false">
         <Toolbar disableGutters>
-          <Avatar alt="picture" src={richard} />
           <Typography
             variant="h6"
             noWrap
@@ -78,6 +83,7 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
+            <Avatar alt="picture" src={richard} />
             Richard Deng Industries
           </Typography>
 
@@ -110,14 +116,19 @@ const Header = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pageLink.map((page) => (
+                <MenuItem
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  component={Link}
+                  to={page}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
@@ -134,20 +145,32 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
+            <Avatar alt="picture" src={richard} />
             Richard Deng Industries
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pageLink.map((page) => (
               <Tooltip title={page}>
-                <Router>
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    {links}
-                  </Button>
-                </Router>
+                <Button
+                  key={page}
+                  // component={Link}
+                  // to={`${pages2.path}`}
+                  // to={{
+                  //   pathname: `${pages2.path}`,
+                  // }}
+                  // to={page}
+                  // to={{
+                  //   pathname: { page },
+                  // }}
+                  // to= `/ ${page}`
+                  // to={pages2.path}
+                  component={Link}
+                  to={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
               </Tooltip>
             ))}
           </Box>
