@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.media {
+  display: flex;
+  height: 100%;
+  width: 110%;
+  object-fit: contain;
+  overflow: hidden;
+  align-items: left;
+  z-index: 1;
+  filter: contrast(0.8) brightness(0.55);
+}
+
+.cardtext {
+  font-size: 18px;
+}
+
+.htext {
+  font-size: 32px;
+}
+
+.heading {
+  text-shadow: 0 0 25px rgb(242, 7, 207);
+}
