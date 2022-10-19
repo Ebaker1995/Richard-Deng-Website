@@ -11,6 +11,12 @@ import Grid from "@mui/material/Grid";
 import tft from "../Assets/GamesListIcons/tft.jpg";
 import lol from "../Assets/GamesListIcons/lol.jpeg";
 import valorant from "../Assets/GamesListIcons/valorant.png";
+import lostArk from "../Assets/GamesListIcons/lostArk.jpg";
+import gunfireReborn from "../Assets/GamesListIcons/gunfireReborn.jpg";
+import csgo from "../Assets/GamesListIcons/csgo.png";
+import overwatch2 from "../Assets/GamesListIcons/overwatch2.jpg";
+import demeo from "../Assets/GamesListIcons/demeo.jpg";
+import pokerStars from "../Assets/GamesListIcons/pokerStars.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor:
@@ -24,48 +30,48 @@ const Item = styled(Paper)(({ theme }) => ({
 const riot = [
   {
     game: "TFT",
-    image: { tft },
+    image: tft,
   },
   {
     game: "League of Legends",
-    image: { lol },
+    image: lol,
   },
   {
     game: "Valorant",
-    image: { valorant },
+    image: valorant,
   },
 ];
 
 const steam = [
   {
     game: "Lost Ark",
-    image: { tft },
+    image: lostArk,
   },
   {
     game: "Gunfire Reborn",
-    image: { lol },
+    image: gunfireReborn,
   },
   {
     game: "CSGO",
-    image: { valorant },
+    image: csgo,
   },
 ];
 
 const blizzard = [
   {
     game: "Overwatch 2",
-    image: { tft },
+    image: overwatch2,
   },
 ];
 
 const oculus = [
   {
     game: "Demeo",
-    image: { tft },
+    image: demeo,
   },
   {
     game: "Poker Stars",
-    image: { lol },
+    image: pokerStars,
   },
 ];
 
